@@ -21,7 +21,7 @@ int main()
     char digits[3];
     digits[2] = '\0';
 
-    char line[100];
+    char line[128];
     int sum = 0;
     while (fgets(line, sizeof(line), fp)) {
 
@@ -45,7 +45,7 @@ int main()
     fclose(fp);
     regfree(&regex);
 
-    printf("\n\n");
+    printf("\n");
     printf("Sum: %d\n", sum);
 
     return 0;
