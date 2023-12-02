@@ -11,12 +11,7 @@ int main()
 {
     FILE* fp = fopen("input.txt", "r");
 
-    if (fp == NULL) {
-        perror("Unable to open file!");
-        exit(1);
-    }
-
-    // Compile regex to get the longest possible string that starts and ends with a digit or a word that spells a digit
+    // Get the longest possible string that starts and ends with a digit OR a word that spells a digit
     regex_t regex;
     char* pattern = "([0-9]|one|two|three|four|five|six|seven|eight|nine).*"
         "([0-9]|one|two|three|four|five|six|seven|eight|nine)|"
@@ -31,35 +26,22 @@ int main()
     char line[128];
     int sum = 0;
     while (fgets(line, sizeof(line), fp)) {
-        printf("%s", line);
-
-        // For sake of simplicity, assume it won't fail to match
         regexec(&regex, line, 1, &match, 0);
         int matchLen = match.rm_eo - match.rm_so;
 
-        // Print the original string that was matched
-        printf("\tMatched: %.*s\n", matchLen, &line[match.rm_so]);
-
-        // If first char is alpha, convert it to a digit
+        // If first or last char is alpha, convert it to a digit
         if (isalpha(line[match.rm_so]))
             convertFirstCharToDigit(&line[match.rm_so], matchLen);
-
-        // If last char is alpha, convert it to a digit
         if (isalpha(line[match.rm_eo - 1]))
             convertLastCharToDigit(&line[match.rm_so], matchLen);
-
-        printf("\tAfter Conversion: %.*s\n", matchLen, &line[match.rm_so]);
 
         digits[0] = line[match.rm_so];
         digits[1] = line[match.rm_eo - 1];
 
-        // Convert the string to an integer and add it to the running sum
+        // Convert to int and add it to total
         num = atoi(digits);
         sum += num;
-        printf("\tAdded: %d\n\n", num);
     }
-
-    // Clean up
     fclose(fp);
     regfree(&regex);
 
@@ -77,7 +59,6 @@ void convertFirstCharToDigit(char* match, int matchLen)
     first2[0] = match[0];
     first2[1] = match[1];
     first2[2] = '\0';
-    printf("\tFirst: %s -> ", first2);
 
     if (strcmp(first2, "on") == 0)
         match[0] = '1';
@@ -97,8 +78,6 @@ void convertFirstCharToDigit(char* match, int matchLen)
         match[0] = '8';
     else if (strcmp(first2, "ni") == 0)
         match[0] = '9';
-
-    printf("%c\n", match[0]);
 }
 
 /**
@@ -111,7 +90,6 @@ void convertLastCharToDigit(char* match, int matchLen)
     last3[1] = match[matchLen - 2];
     last3[2] = match[matchLen - 1];
     last3[3] = '\0';
-    printf("\tLast: %s -> ", last3);
 
     if (strcmp(last3, "one") == 0)
         match[matchLen - 1] = '1';
@@ -131,6 +109,4 @@ void convertLastCharToDigit(char* match, int matchLen)
         match[matchLen - 1] = '8';
     else if (strcmp(last3, "ine") == 0)
         match[matchLen - 1] = '9';
-
-    printf("%c\n", match[matchLen - 1]);
 }
