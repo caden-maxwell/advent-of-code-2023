@@ -12,7 +12,7 @@ A concise description of the day's challenge.
 
 Approach to solving the challenge.
 
-### Build/Run Instructions
+## Build/Run Instructions
 
 Instructions on how to build and run the solution (if applicable).
 
