@@ -4,6 +4,8 @@ Back to [Table of Contents](../README.md#table-of-contents)
 
 # Day X: [Challenge Title](https://adventofcode.com/2023/day/X)
 
+### *Language of Choice - [Language](https://www.example.com/)*
+
 ## Part X
 
 A concise description of the day's challenge.
