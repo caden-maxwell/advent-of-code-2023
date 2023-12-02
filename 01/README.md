@@ -54,6 +54,9 @@ $ make
 $ ./part1
 ```
 
+**Note:** `regex.h` is a POSIX library, which means this probably won't
+run on Windows unless you're using WSL or similar.
+
 ## Part 2
 
 A concise description of the day's challenge.
