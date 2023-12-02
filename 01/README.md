@@ -4,6 +4,8 @@ Back to [Table of Contents](../README.md#table-of-contents)
 
 # Day 1: [Trebuchet?!](https://adventofcode.com/2023/day/1)
 
+### *Language of Choice - [C](https://www.cprogramming.com/)*
+
 ## Part 1
 
 Given an input of several hundred (seemingly random) alphanumeric strings, get the first and last digits, and concatenate them to form a single two-digit number. Add all of these numbers together to get the final result.
