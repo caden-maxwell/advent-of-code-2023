@@ -115,19 +115,43 @@ Everything else was pretty much the same as before.
 Overall, I had fun with this. I'm sure one day I'll look back on this code and
 cringe much harder than I am now, but for now I'm happy with it, being the C newbie I am.
 
+---
+
+Edit: A day later and I'm not happy with it anymore. I just discovered the
+`strncmp()` function, which makes things whole a lot easier. I was able to
+condense the two monster functions I created yesterday into one simple, clean one:
+```c
+void convertCharToDigit(char* match, int matchLen, int isLast)
+{
+    char* words[] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    int lengths[] = { 3, 3, 5, 4, 4, 3, 5, 5, 4 };
+    for (int i = 0; i < 9; i++)
+    {
+        int offset = isLast ? matchLen - lengths[i] : 0;
+        if (strncmp(match + offset, words[i], lengths[i]) == 0)
+        {
+            if (isLast) match[matchLen - 1] = i + '1';
+            else match[0] = i + '1';
+            break;
+        }
+    }
+}
+```
+Much better!
+
 Part 2 Solution Code: [`part2.c`](part2.c)
 
 ## Build/Run Instructions
 
 In a terminal, navigate to this directory (`01/`), and run:
 ```bash
-$ gcc -o part1 part1.c
-$ ./part1
+$ gcc -o main part1.c
+$ ./main
 ```
 or:
 ```bash
-$ gcc -o part2 part2.c
-$ ./part2
+$ gcc -o main part2.c
+$ ./main
 ```
 **Note:** `regex.h` is a POSIX library, which means this probably won't run on Windows unless you're using WSL or similar.
 
@@ -135,6 +159,7 @@ $ ./part2
 
 - [Regex in C](https://www.geeksforgeeks.org/regular-expressions-in-c/)
 - [File handling in C](https://www.geeksforgeeks.org/basics-file-handling-c/)
+- [`Startswith` implmentation in C](https://stackoverflow.com/questions/4770985/how-to-check-if-a-string-starts-with-another-string-in-c)
 
 ---
 

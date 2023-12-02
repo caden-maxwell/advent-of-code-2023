@@ -17,7 +17,8 @@ int main()
 
     char line[128];
     int sum = 0;
-    while (fgets(line, sizeof(line), fp)) {
+    while (fgets(line, sizeof(line), fp))
+    {
         regexec(&regex, line, 1, &match, 0);
 
         // Concatenate
