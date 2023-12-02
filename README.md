@@ -18,3 +18,5 @@ This repository serves as a platform for honing my programming skills and explor
 ## Table of Contents
 
 ### [Day 1: Trebuchet?!](./01/README.md)
+
+### [Day 2: Cube Conundrum](./02/README.md)
