@@ -9,7 +9,7 @@ This repository serves as a platform for honing my programming skills and explor
 ## Structure
 
 - Each day's solutions are organized into separate folders: `01`, `02`, `03`, etc.
-- Solutions for each day (and possibly each part, if I'm feeling ambitious) are written in a different programming language, whether it's an old favorite or one I've never heard of.
+- Solutions for each day are written in a different programming language, whether it's an old favorite or one I've never heard of.
 - Each solution is accompanied by a `README.md` file, including:
     - A brief description of the problem
     - My approach to the solution
