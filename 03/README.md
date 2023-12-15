@@ -4,7 +4,9 @@ Back to [Table of Contents](../README.md#table-of-contents)
 
 # Day 3: [Gear Ratios](https://adventofcode.com/2023/day/3)
 
-### *Language of Choice - [PHP](https://www.php.net/)*
+### *Language of Choice - [PHP](https://www.php.net/)* - Zero prior experience
+
+We're going into this absolutely blind, folks. I've never even seen PHP code before this. Wish me luck.
 
 ## Part 1
 
@@ -85,8 +87,9 @@ Pretty cool, right?
 
 ---
 
-
-
+I'm pretty happy with the parsing loop I came up with, but the logic to check
+adjacencies is pretty messy right now. Nonetheless, it works! Here is the final
+solution: [`part1.php`](part1.php)
 
 ## Part 2
 
@@ -106,6 +109,7 @@ Instructions on how to build and run the solution (if applicable).
 - [PHP OOP](https://www.php.net/manual/en/language.oop5.basic.php)
 - [PHP Arrays](https://www.php.net/manual/en/language.types.array.php)
 - [`preg_split()`](https://www.php.net/manual/en/function.preg-split.php)
+- [Null coalescing operator](https://www.php.net/manual/en/migration70.new-features.php#migration70.new-features.null-coalesce-op)
 
 ---
 
