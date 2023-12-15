@@ -19,9 +19,9 @@ while ($line = fgets($fp)) {
     $symbolRow = array();
     foreach ($matches as $match) {
         if (is_numeric($match[0]))
-            array_push($numRow, $match);
+            $numRow[$match[1]] = $match[0];
         else if (!str_starts_with($match[0], ".") and $match[0] != "" and $match[0] != "\n")
-            array_push($symbolRow, $match);
+            $symbolRow[$match[1]] = $match[0];
     }
     array_push($nums, $numRow);
     array_push($symbols, $symbolRow);
@@ -31,34 +31,17 @@ fclose($fp);
 
 $sum = 0;
 for ($lineIdx = 0; $lineIdx < $lineCount; $lineIdx++) {
-    foreach ($nums[$lineIdx] as $numCell) {
-        [$num, $numIdx] = $numCell;
-        $numLen = strlen($num);
+    $prevSymbs = $symbols[$lineIdx-1] ?? [];
+    $currSymbs = $symbols[$lineIdx];
+    $nextSymbs = $symbols[$lineIdx+1] ?? [];
+    $symbolArr = $prevSymbs + $currSymbs + $nextSymbs;
 
-        foreach ($symbols[$lineIdx-1] ?? [] as $symbCell) { // Iterate through previous line's symbols
-            [$symbol, $symbIdx] = $symbCell;
-            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) { // Check if symbol is in bounds
+    foreach ($nums[$lineIdx] as $numIdx => $num)
+        foreach ($symbolArr as $symbolIdx => $symbol) // Iterate through each symbol index
+            if ($symbolIdx >= $numIdx-1 and $symbolIdx <= $numIdx + strlen($num)) { // Check if symbol is in bounds
                 $sum += $num;
-                continue 2; // continue outer loop
+                break;
             }
-        }
-
-        foreach ($symbols[$lineIdx] as $symbCell) { // Iterate through current line's symbols
-            [$symbol, $symbIdx] = $symbCell;
-            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) {
-                $sum += $num;
-                continue 2;
-            }
-        }
-
-        foreach ($symbols[$lineIdx+1] ?? [] as $symbCell) { // Iterate through next line's symbols
-            [$symbol, $symbIdx] = $symbCell;
-            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) {
-                $sum += $num;
-                continue 2;
-            }
-        }
-    }
 }
 echo "Sum: $sum\n"
 ?>
