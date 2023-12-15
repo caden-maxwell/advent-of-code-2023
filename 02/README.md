@@ -4,7 +4,9 @@ Back to [Table of Contents](../README.md#table-of-contents)
 
 # Day 2: [Cube Conundrum](https://adventofcode.com/2023/day/2)
 
-### *Language of Choice - [C++](https://https://cplusplus.com/)*
+### *Language of Choice - [C++](https://https://cplusplus.com/)* - Some prior experience
+
+I've worked with C++ a little in the past, but I'm definitely not an expert. In fact, I'm hardly a novice. Let's see how this goes...
 
 ## Part 1
 

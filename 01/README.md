@@ -4,7 +4,9 @@ Back to [Table of Contents](../README.md#table-of-contents)
 
 # Day 1: [Trebuchet?!](https://adventofcode.com/2023/day/1)
 
-### *Language of Choice - [C](https://www.cprogramming.com/)*
+### *Language of Choice - [C](https://www.cprogramming.com/)* - Almost no prior experience
+
+I've seen some C code snippets before in a textbook, but I've never written any C myself. However, I do have some prior experience with C++, so I'm hoping that will help me out at least a little bit.
 
 ## Part 1
 
