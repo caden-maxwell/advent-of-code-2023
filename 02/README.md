@@ -41,19 +41,40 @@ Part 1 Solution Code: [`part1.cpp`](part1.cpp)
 
 ## Part 2
 
-Something here
+Given the same input as for part 1, ([`input.txt`](input.txt)), we now need to find
+the minimum set of cubes that must have been present for each game. For example, in this game:
+```text
+Game 1: 4 blue, 4 red, 16 green; 14 green, 5 red; 1 blue, 3 red, 5 green
+```
+The minimum set of cubes that must have been present is 3 red, 5 green, and 1 blue.
+
+We then need to multiply these minimums together for each game to get the 'power' of the game,
+then sum the powers together to get the final answer.
 
 ### My Approach/Notes
 
-Approach to solving the challenge.
+We can pretty much keep all the same parsing code. Glad I made those structs after all.
+The only thing we need to change now is in the last loop, keep a running maximum of cube counts for each color, and update them as we iterate through each round.
+Computing the power for each round and the overall sum is trivial.
+
+---
+
+Yeah, it was as easy as I thought. Took like 2 minutes.
+
+Part 2 Solution Code: [`part2.cpp`](part2.cpp)
 
 ## Build/Run Instructions
 
-Instructions on how to build and run the solution (if applicable).
-
-## References
-
-- [Reference 1](https://www.example.com)
+In a terminal, navigate to this directory (`02/`), and run:
+```bash
+$ g++ -o main part1.cpp
+$ ./main
+```
+or:
+```bash
+$ g++ -o main part2.cpp
+$ ./main
+```
 
 ---
 

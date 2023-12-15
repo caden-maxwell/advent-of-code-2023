@@ -5,10 +5,6 @@
 #include <string>
 
 
-int RED_COUNT = 12;
-int GREEN_COUNT = 13;
-int BLUE_COUNT = 14;
-
 struct Round
 {
     int reds;
@@ -82,20 +78,19 @@ int main(int argc, char** argv)
     }
     file.close();
 
-    int sum = 0;
+    long sum = 0;
     for (Game game : games)
     {
-        bool possible = true;
+        int maxRed = 0;
+        int maxGreen = 0;
+        int maxBlue = 0;
         for (Round round : game.rounds)
         {
-            if (round.reds > RED_COUNT || round.greens > GREEN_COUNT || round.blues > BLUE_COUNT)
-            {
-                possible = false;
-                break;
-            }
+            maxRed = maxRed > round.reds ? maxRed : round.reds;
+            maxGreen = maxGreen > round.greens ? maxGreen : round.greens;
+            maxBlue = maxBlue > round.blues ? maxBlue : round.blues;
         }
-        if (possible)
-            sum += game.ID;
+        sum += maxRed*maxGreen*maxBlue;
     }
     std::cout << "Sum: " << sum << std::endl;
 
