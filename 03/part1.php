@@ -31,40 +31,31 @@ fclose($fp);
 
 $sum = 0;
 for ($lineIdx = 0; $lineIdx < $lineCount; $lineIdx++) {
-    $prevNums = $nums[$lineIdx-1] ?? []; // Cool 'null coalescing' operator!
-    $currentNums = $nums[$lineIdx];
-    $nextNums = $nums[$lineIdx+1] ?? [];
-
-    $prevSymbs = $symbols[$lineIdx-1] ?? [];
-    $currentSymbs = $symbols[$lineIdx];
-    $nextSymbs = $symbols[$lineIdx+1] ?? [];
-    foreach ($currentNums as $numCell) {
+    foreach ($nums[$lineIdx] as $numCell) {
         [$num, $numIdx] = $numCell;
         $numLen = strlen($num);
 
-        $isPartNumber = false;
-        foreach ($prevSymbs as $symbCell) { // Iterate through previous line's symbols
+        foreach ($symbols[$lineIdx-1] ?? [] as $symbCell) { // Iterate through previous line's symbols
             [$symbol, $symbIdx] = $symbCell;
             if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) { // Check if symbol is in bounds
-                $isPartNumber = true;
                 $sum += $num;
-                break;
+                continue 2; // continue outer loop
             }
         }
-        foreach ($currentSymbs as $symbCell) { // Iterate through current line's symbols
+
+        foreach ($symbols[$lineIdx] as $symbCell) { // Iterate through current line's symbols
             [$symbol, $symbIdx] = $symbCell;
-            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) { // Check if symbol is in bounds
-                $isPartNumber = true;
+            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) {
                 $sum += $num;
-                break;
+                continue 2;
             }
         }
-        foreach ($nextSymbs as $symbCell) { // Iterate through next line's symbols
+
+        foreach ($symbols[$lineIdx+1] ?? [] as $symbCell) { // Iterate through next line's symbols
             [$symbol, $symbIdx] = $symbCell;
-            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) { // Check if symbol is in bounds
-                $isPartNumber = true;
+            if ($symbIdx >= $numIdx-1 and $symbIdx <= $numIdx + $numLen) {
                 $sum += $num;
-                break;
+                continue 2;
             }
         }
     }
