@@ -8,7 +8,7 @@ Back to [Table of Contents](../README.md#table-of-contents)
 
 ## Part X
 
-A concise description of the day's challenge.
+A concise description of this part's challenge.
 
 ### My Approach/Notes
 
