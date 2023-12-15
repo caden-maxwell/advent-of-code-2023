@@ -91,6 +91,10 @@ I'm pretty happy with the parsing loop I came up with, but the logic to check
 adjacencies is pretty messy right now. Nonetheless, it works! Here is the final
 solution: [`part1.php`](part1.php)
 
+---
+
+Update: Made the adjacency checker much more compact by flattening the three symbol rows into one.
+
 ## Part 2
 
 A concise description of this part's challenge.
