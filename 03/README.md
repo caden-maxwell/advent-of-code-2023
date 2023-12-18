@@ -97,15 +97,34 @@ Update: Made the adjacency checker much more compact by flattening the three sym
 
 ## Part 2
 
-A concise description of this part's challenge.
+For this part, we need to go through all the gears from the input file and sum all
+of their gear ratios. A gear is any `*` symbol adjacent to exactly 2 part numbers, and 
+its gear ratio is the product of the two part numbers.
 
 ### My Approach/Notes
 
-Approach to solving the challenge.
+I think we can keep all of the same code for the parsing loop. After that, the loop
+to check for gears is kind of like an inside-out version of the loop from part 1, 
+where instead of iterating over the numbers in each line, we iterate over each symbol,
+and check if it's adjacent to exactly 2 numbers. If it is, we multiply them together
+and add the product to the sum.
+
+---
+
+As easy as I thought. Here is the final solution: [`part2.php`](part2.php)
 
 ## Build/Run Instructions
 
-Instructions on how to build and run the solution (if applicable).
+1. Install PHP on your machine.
+2. In a terminal, navigate to this directory (`03/`), and run:
+
+    ```bash
+    $ php part1.php
+    ```
+    **or**
+    ```bash
+    $ php part2.php
+    ```
 
 ## References
 
