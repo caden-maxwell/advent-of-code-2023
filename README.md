@@ -22,3 +22,5 @@ This repository serves as a platform for honing my programming skills and explor
 ### [Day 2: Cube Conundrum](./02/README.md) - [C++](https://https://cplusplus.com/)
 
 ### [Day 3: Gear Ratios](./03/README.md) - [PHP](https://www.php.net/)
+
+### [Day 4: Scratchcards](./04/README.md) - []()
