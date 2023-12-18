@@ -113,6 +113,12 @@ and add the product to the sum.
 
 As easy as I thought. Here is the final solution: [`part2.php`](part2.php)
 
+---
+
+I enjoyed this challenge! I think PHP is a pretty cool language, and I'm glad I got
+to learn a little bit about it. I'm sure there are better ways to do some of the things
+I did, but I'm happy with the solutions I came up with for now.
+
 ## Build/Run Instructions
 
 1. Install PHP on your machine.
