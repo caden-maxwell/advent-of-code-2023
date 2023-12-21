@@ -24,3 +24,5 @@ This repository serves as a platform for honing my programming skills and explor
 ### [Day 3: Gear Ratios](./03/README.md) - [PHP](https://www.php.net/)
 
 ### [Day 4: Scratchcards](./04/README.md) - [Rust](https://www.rust-lang.org/)
+
+### [Day 5: If You Give A Seed A Fertilizer](./05/README.md) - []()
