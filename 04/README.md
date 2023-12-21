@@ -35,26 +35,67 @@ There is an `intersection` method on the `HashSet` type, which will make things 
 
 ---
 
+Definitely took a while to figure out how to parse things in a somewhat clear and concise way, but I found that most functions/methods are similar to what 
+I would see in C++, Java, etc, I just have to look at the documentation a little bit further to see exactly what these functions are returning, which 
+is what I was getting tripped up on.
 
+Here is the solution: [`part1.rs`](./part1.rs)
 
 ## Part 2
 
-Text
+This next part is a little confusing. Instead of using a 'points' system, we copy the 
+next `n` cards in the pile based on how many matches there are on the current card (`n`).
+For example, consider the following input:
+```text
+Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
+Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
+Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
+...
+```
+We see that we have four matches on card 1. So, the next four cards (2, 3, 4, and 5)
+each get copied, and we continue the matching and copying with all of the rest of the 
+cards (including the copied ones). With this example, we would see that card 2
+has two matches, and since we have two 'card 2's, we copy the next two cards (3 and 4) 
+twice, and so on. We sum the total number of cards at the end to get the solution.
 
 ### My Approach/Notes
 
-Text
+Since we already know how to get the matches for each card, all we need to do now 
+is just keep a count of the number of each card in the pile. We increase counts for
+the next `n` cards based on the number of current matches and the number of copies
+of the current card. Seems simple enough.
+
+---
+
+Pretty much did exactly what I said. I did need to change the way I read the input
+file into memory, since it was annoying to figure out how to get the number of lines
+in the file then iterate over it for parsing and summing without iterating over it twice.
+The `read_to_string()` method was great for this. I went back and changed part 1
+to incorporate this change also.
+
+Solution for this part is [`here`](./part2.rs)
 
 ## Build/Run Instructions
 
-Instructions on how to build and run the solution (if applicable).
+You just need to have Rust installed, then you can run the following commands:
+```bash
+$ rustc part1.rs
+$ ./part1
+```
+for part 1, **or**
+```bash
+$ rustc part2.rs
+$ ./part2
+```
+for part 2.
 
 ## References
 
 - [Rust `std` lib](https://doc.rust-lang.org/std/index.html)
 - [File I/O](https://doc.rust-lang.org/rust-by-example/std_misc/file.html)
 - [Rust Collections Module](https://doc.rust-lang.org/std/collections/index.html)
-- []()
+    - [HashSet](https://doc.rust-lang.org/std/collections/struct.HashSet.html)
+    - [Vec](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 
 ---
 
