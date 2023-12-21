@@ -31,6 +31,10 @@ To get the number of matches, I assume we can just union the set of winning numb
 
 ---
 
+There is an `intersection` method on the `HashSet` type, which will make things really easy. All I really need to figure out now is parsing.
+
+---
+
 
 
 ## Part 2
@@ -48,6 +52,8 @@ Instructions on how to build and run the solution (if applicable).
 ## References
 
 - [Rust `std` lib](https://doc.rust-lang.org/std/index.html)
+- [File I/O](https://doc.rust-lang.org/rust-by-example/std_misc/file.html)
+- [Rust Collections Module](https://doc.rust-lang.org/std/collections/index.html)
 - []()
 
 ---
