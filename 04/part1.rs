@@ -3,7 +3,6 @@ use std::collections::HashSet;
 
 fn main() {
     let input = read_to_string("input.txt").unwrap();
-
     let mut sum = 0;
     for line in input.lines() {
         let tokens = line.split_whitespace().collect::<Vec<&str>>();
@@ -16,6 +15,7 @@ fn main() {
 
         let intersect_len = winning_nums.intersection(our_nums).count();
         if intersect_len == 0 { continue };
+
         let base: i32 = 2;
         let points = base.pow(intersect_len as u32 - 1);
         sum += points;
